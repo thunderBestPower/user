@@ -8,51 +8,51 @@ use Esc\User\Entity\User;
 use Esc\User\Repository\UserRepository;
 use Esc\User\Service\UserService;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
+use Prophecy\Prophet;
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 
 class UserServiceTest extends TestCase
 {
+    private $prophet;
+    private $user;
+    private $userRepository;
+    private $entityManager;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->prophet = new Prophet();
+        $this->user = $this->prophet->prophesize(User::class);
+        $this->userRepository = $this->prophet->prophesize(UserRepository::class);
+        $this->entityManager = $this->prophet->prophesize(EntityManagerInterface::class);
+    }
+
+    protected function tearDown(): void
+    {
+        $this->addToAssertionCount(count($this->prophet->getProphecies()));
+    }
     /**
      * @throws AssertionFailedException
      */
     public function testCreateUser(): void
     {
-        $user = $this->getMockBuilder(User::class)
-            ->getMock();
+        $this->user->setUsername(Argument::is('foo'))
+            ->shouldBeCalled();
 
-        $entityManager = $this->getMockBuilder(EntityManagerInterface::class)
-            ->getMock();
+        $this->user->setPlainPassword(Argument::is('bar'))
+            ->shouldBeCalled();
 
-        $userRepository = $this->getMockBuilder(UserRepository::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->user->setEmail(Argument::exact('baz@baz.it'))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
 
-        $user->expects($this->once())
-            ->method('setUsername')
-            ->with('foo');
+        $this->user->setActive(Argument::is(true))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
 
-        $user->expects($this->once())
-            ->method('setPlainPassword')
-            ->with('bar');
-
-        $user->expects($this->once())
-            ->method('setEmail')
-            ->with('baz@baz.it');
-
-        $user->expects($this->once())
-            ->method('setActive')
-            ->with(true);
-
-        $user->expects($this->once())
-            ->method('setRoles')
-            ->with([1]);
-
-        $entityManager->expects($this->once())
-            ->method('persist')
-            ->with($user);
-
-        $entityManager->expects($this->once())
-            ->method('flush');
+        $this->user->setRoles(Argument::is([1]))
+            ->shouldBeCalled();
 
         $userBag = new AttributeBag();
         $userData = [
@@ -64,87 +64,132 @@ class UserServiceTest extends TestCase
             'roles' => [1],
         ];
         $userBag->initialize($userData);
-
-        $service = new UserService($entityManager, $userRepository, $user);
-
+        $service = new UserService($this->entityManager->reveal(), $this->userRepository->reveal(), $this->user->reveal());
         $service->createUser($userBag);
+
+
+        $this->entityManager->persist(Argument::exact($this->user))
+            ->shouldHaveBeenCalledTimes(1);
+
+        $this->entityManager->flush()
+            ->shouldHaveBeenCalled();
 
     }
 
     /**
      * @throws AssertionFailedException
      */
-    public function testUpdateUser(): void
+    public function testIfPasswordExistAndIsNotEmpty(): void
     {
+        $this->userRepository->getOneById(Argument::exact(1))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
+
+        $this->user->setPlainPassword(Argument::is('bar'))
+            ->shouldNotBeCalled();
+
+        $this->user->setEmail(Argument::exact('baz@baz.it'))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
+
+        $this->user->setActive(Argument::is(true))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
+
+        $this->user->setRoles(Argument::is([1]))
+            ->shouldBeCalled();
+
         $userBag = new AttributeBag();
-        $data = [
-            'password' => 'bar',
+        $userData = [
+            'username' => 'foo',
             'confirmPassword' => 'bar',
-            'email' => 'foo@foo.it',
+            'email' => 'baz@baz.it',
+            'active' => true,
+            'roles' => [1],
         ];
-        $userBag->initialize($data);
+        $userBag->initialize($userData);
 
+        $service = new UserService($this->entityManager->reveal(), $this->userRepository->reveal(), $this->user->reveal());
+        $service->updateUser(1, $userBag);
 
-        $userRepository = $this->getMockBuilder(UserRepository::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->entityManager->persist(Argument::exact($this->user))
+            ->shouldHaveBeenCalledTimes(1);
 
-        $entityManager = $this->getMockBuilder(EntityManagerInterface::class)
-            ->getMock();
+        $this->entityManager->flush()
+            ->shouldHaveBeenCalled();
+    }
 
-        $user = $this->getMockBuilder(User::class)
-            ->getMock();
+    /**
+     * @throws AssertionFailedException
+     */
+    public function testIfEmailActiveAndRolesExists(): void
+    {
+        $this->userRepository->getOneById(Argument::exact(1))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
 
-        $user->expects($this->once())
-            ->method('setEmail')
-            ->with('foo@foo.it');
+        $this->user->setEmail(Argument::exact('baz@baz.it'))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
 
-        $user->expects($this->once())
-            ->method('setPlainPassword')
-            ->with('bar');
+        $this->user->setActive(Argument::is(true))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
 
-        $userRepository->method('getOneById')
-            ->with(1)
-            ->willReturn($user);
+        $this->user->setRoles(Argument::is([1]))
+            ->shouldBeCalled();
 
-        $entityManager->expects($this->once())
-            ->method('persist')
-            ->with($user);
+        $userBag = new AttributeBag();
+        $userData = [
+            'username' => 'foo',
+            'confirmPassword' => 'bar',
+            'email' => 'baz@baz.it',
+            'active' => true,
+            'roles' => [1],
+        ];
+        $userBag->initialize($userData);
 
-        $entityManager->expects($this->once())
-            ->method('flush');
-
-        $service = new UserService($entityManager, $userRepository, $user);
-
+        $service = new UserService($this->entityManager->reveal(), $this->userRepository->reveal(), $this->user->reveal());
         $service->updateUser(1, $userBag);
     }
 
     public function testDeleteUser(): void
     {
-        $user = $this->getMockBuilder(User::class)
-            ->getMock();
 
-        $entityManager = $this->getMockBuilder(EntityManagerInterface::class)
-            ->getMock();
+        $this->userRepository->getOneById(Argument::exact(1))
+            ->willReturn($this->user)
+            ->shouldBeCalled();
 
-        $userRepository = $this->getMockBuilder(UserRepository::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $userRepository->method('getOneById')
-            ->with(1)
-            ->willReturn($user);
-
-        $entityManager->expects($this->once())
-            ->method('remove')
-            ->with($user);
-
-        $entityManager->expects($this->once())
-            ->method('flush');
-
-        $service = new UserService($entityManager, $userRepository, $user);
-
+        $service = new UserService($this->entityManager->reveal(), $this->userRepository->reveal(), $this->user->reveal());
         $service->deleteUser(1);
+
+        $this->entityManager->remove(Argument::exact($this->user))
+            ->shouldHaveBeenCalledTimes(1);
+
+        $this->entityManager->flush()
+            ->shouldHaveBeenCalled();
+    }
+
+    public function testChangePassword(): void
+    {
+        $this->userRepository->getOneById(Argument::exact(1))
+            ->willReturn($this->user);
+
+        $this->user->getPassword()
+            ->willReturn('$2y$13$rcYC2TRkTg8//bJ.f7UKMuD2T8o3IAt.1kdGDLH3f2USa1PEwl9tq');
+
+        $this->user->setPlainPassword('foo');
+
+        $service = new UserService($this->entityManager->reveal(), $this->userRepository->reveal(), $this->user->reveal());
+        $service->changeUserPassword(1, 'foo', 'foo', 'admin');
+
+        $this->entityManager->persist(Argument::exact($this->user))
+            ->shouldHaveBeenCalledTimes(1);
+
+        $this->entityManager->flush()
+            ->shouldHaveBeenCalled();
+
+        $this->addToAssertionCount(count($this->prophet->getProphecies()));
     }
 
     public function testDeleteUserThrowException(): void
