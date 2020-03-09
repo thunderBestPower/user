@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/escsrl/user/compare/v3.0.0...v3.1.0) (2020-03-09)
+
+
+### Features
+
+* added repository interface dependency ([8849fbb](https://github.com/escsrl/user/commit/8849fbb2665a14eca5852499310471298eb8f4c3))
+
+
+### Bug Fixes
+
+* removed unnecessary methods definition on escuserrepository interface ([d367605](https://github.com/escsrl/user/commit/d3676059899a71fbaebe3043170f25e2dc3ace9e))
+
 ## [3.0.0](https://github.com/escsrl/user/compare/v2.1.1...v3.0.0) (2020-02-26)
 
 

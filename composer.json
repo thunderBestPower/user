@@ -29,7 +29,6 @@
         "escsrl/repository": "^1.0",
         "escsrl/requestparams": "^2.0",
         "escsrl/result": "^1.0",
-        "escsrl/repository": "^1.0",
         "nesbot/carbon": "^2.27",
         "phpspec/prophecy": "^1.10",
         "sensio/framework-extra-bundle": "^5.5",
@@ -43,5 +42,5 @@
     "config": {
         "sort-packages": true
     },
-    "version": "3.0.0"
+    "version": "3.1.0"
 }
