@@ -153,9 +153,11 @@ final class UserController extends AbstractController
     public function changePassword(int $id, Request $request, Result $result): Response
     {
         try {
-            $oldPassword = $request->get('oldPassword');
-            $password = $request->get('password');
-            $confirmPassword = $request->get('confirmPassword');
+            $userData = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
+
+            $oldPassword = $request->get('oldPassword', array_key_exists('oldPassword', $userData) ? $userData['oldPassword'] : '');
+            $password = $request->get('password', array_key_exists('password', $userData) ? $userData['password'] : '');
+            $confirmPassword = $request->get('confirmPassword', array_key_exists('confirmPassword', $userData) ? $userData['confirmPassword'] : '');
 
             $this->userService->changeUserPassword($id, $password, $confirmPassword, $oldPassword);
 
