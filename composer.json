@@ -36,7 +36,7 @@
         "nesbot/carbon": "^2.27",
         "phpspec/prophecy": "^1.10",
         "sensio/framework-extra-bundle": "^5.5",
-        "symfony/security-bundle": "^5.0",
+        "symfony/security-bundle": "^5.1",
         "symfony/serializer-pack": "^1.0"
     },
     "require-dev": {
@@ -46,5 +46,5 @@
     "config": {
         "sort-packages": true
     },
-    "version": "4.1.1"
+    "version": "4.1.2"
 }
