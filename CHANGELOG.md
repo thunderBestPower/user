@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/escsrl/user/compare/v4.0.0...v4.1.0) (2020-12-01)
+
+
+### Features
+
+* add new author ([b6bbf66](https://github.com/escsrl/user/commit/b6bbf665efd8539c5df3c03873e40d4e7adc10e5))
+
+
+### Bug Fixes
+
+* change OjectManger to EntityInterface ([7b442c8](https://github.com/escsrl/user/commit/7b442c803adac5a8cc6ae605ec158fa294482b62))
+
 ## [4.0.0](https://github.com/escsrl/user/compare/v3.1.1...v4.0.0) (2020-09-09)
 
 
