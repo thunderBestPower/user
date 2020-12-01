@@ -3,16 +3,16 @@
 namespace Esc\User\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Esc\User\Entity\User;
 
 final class UserFixtures extends Fixture
 {
     /**
-     * @param ObjectManager $manager
+     * @param EntityManagerInterface $entityManager
      * @return void
      */
-    public function load(ObjectManager $manager): void
+    public function load(EntityManagerInterface $entityManager): void
     {
         $userEntity = new User();
         $userEntity->setUsername('admin');
@@ -20,8 +20,8 @@ final class UserFixtures extends Fixture
         $userEntity->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
         $userEntity->setEmail('admin@admin.com');
 
-        $manager->persist($userEntity);
-        $manager->flush();
+        $entityManager->persist($userEntity);
+        $entityManager->flush();
 
         $userEntity = new User();
         $userEntity->setUsername('utente');
@@ -30,7 +30,7 @@ final class UserFixtures extends Fixture
         $userEntity->setEmail('utente@utente.com');
         $userEntity->setActive(false);
 
-        $manager->persist($userEntity);
-        $manager->flush();
+        $entityManager->persist($userEntity);
+        $entityManager->flush();
     }
 }
