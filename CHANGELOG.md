@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/escsrl/user/compare/v4.0.2...v4.1.0) (2020-12-01)
+
+
+### Features
+
+* remove data fixture ([4ae2a91](https://github.com/escsrl/user/commit/4ae2a911f044b498e8ca2980dc9f61fd936ea262))
+
 ## [4.0.1](https://github.com/escsrl/user/compare/v4.0.0...v4.1.0) (2020-12-01)
 
 
