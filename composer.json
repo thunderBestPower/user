@@ -12,6 +12,10 @@
         {
             "name": "Alessandro Bellanda",
             "email": "a.bellanda@gmail.com"
+        },
+        {
+            "name": "Mattia Vitali",
+            "email": "mattia.vitali@blue-web.it"
         }
     ],
     "autoload": {
