@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/escsrl/user/compare/v4.2.0...v4.2.1) (2020-12-09)
+
+
+### Bug Fixes
+
+* typo path version ([27c139c](https://github.com/escsrl/user/commit/27c139c01ec385d31fda725180b27f0d6c9da214))
+* typo version ([9ba9cff](https://github.com/escsrl/user/commit/9ba9cffc46d24fbaabaf54d30be90f912fda396d))
+
 ## [4.2.0](https://github.com/escsrl/user/compare/v4.1.2...v4.2.0) (2020-12-09)
 
 
