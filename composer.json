@@ -31,7 +31,7 @@
         "beberlei/assert": "^3.2",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
-        "escsrl/repository": "^1.0",
+        "escsrl/repository": "^1.1",
         "escsrl/requestparams": "^3.0",
         "escsrl/result": "^1.0",
         "nesbot/carbon": "^2.27",
