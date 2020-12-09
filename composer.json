@@ -31,7 +31,7 @@
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
         "escsrl/repository": "^1.0",
-        "escsrl/requestparams": "^2.0",
+        "escsrl/requestparams": "^3.0",
         "escsrl/result": "^1.0",
         "nesbot/carbon": "^2.27",
         "phpspec/prophecy": "^1.10",
