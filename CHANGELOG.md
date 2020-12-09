@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.2](https://github.com/escsrl/user/compare/v4.2.1...v4.2.2) (2020-12-09)
+
+
+### Bug Fixes
+
+* add library ([46a7511](https://github.com/escsrl/user/commit/46a751156ed5202bb56b53106fabddbd2416fd47))
+
 ### [4.2.1](https://github.com/escsrl/user/compare/v4.2.0...v4.2.1) (2020-12-09)
 
 
