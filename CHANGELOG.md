@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.3](https://github.com/escsrl/user/compare/v4.2.2...v4.2.3) (2020-12-09)
+
+
+### Bug Fixes
+
+* upgrade version repository ([f819eb9](https://github.com/escsrl/user/commit/f819eb99b37a2e6b050c86d9e62720d24efec54c))
+
 ### [4.2.2](https://github.com/escsrl/user/compare/v4.2.1...v4.2.2) (2020-12-09)
 
 
