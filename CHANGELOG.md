@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/escsrl/user/compare/v4.1.2...v4.2.0) (2020-12-09)
+
+
+### Features
+
+* aggiornamento libreria escsrl/requestparams ([4488e8d](https://github.com/escsrl/user/commit/4488e8d20c358dc454d4221ce8cd4bdeb04fcf63))
+
 ## [4.1.0](https://github.com/escsrl/user/compare/v4.0.2...v4.1.0) (2020-12-01)
 
 
