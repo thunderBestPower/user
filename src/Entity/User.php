@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
@@ -21,12 +22,14 @@ class User implements UserInterface, EscUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @Groups({"userAll", "user", "userSimple"})
      */
     private $id;
 
     /**
      * @var string
      * @ORM\Column(name="username", type="string", unique=true)
+     * @Groups({"userAll", "user", "userSimple"})
      */
     private $username;
 
@@ -44,6 +47,7 @@ class User implements UserInterface, EscUser
     /**
      * @var array
      * @ORM\Column(name="roles", type="simple_array")
+     * @Groups({"userAll", "user"})
      */
     private $roles;
 
@@ -61,11 +65,13 @@ class User implements UserInterface, EscUser
 
     /**
      * @ORM\Column(type="boolean",options={"default":1})
+     * @Groups({"userAll", "user", "userSimple"})
      */
     private $active = true;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"userAll", "user"})
      */
     private $email;
 
