@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.3.0](https://github.com/escsrl/user/compare/v4.2.3...v4.3.0) (2021-03-01)
+
+
+### Features
+
+* add group on entity ([5b168d3](https://github.com/escsrl/user/commit/5b168d38c1d7d8370e43d346cc934f5e35583882))
+
 ### [4.2.3](https://github.com/escsrl/user/compare/v4.2.2...v4.2.3) (2020-12-09)
 
 
