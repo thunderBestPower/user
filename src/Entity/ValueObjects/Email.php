@@ -11,13 +11,15 @@ class Email
 
     /**
      * Email constructor.
-     * @param string $email
+     * @param string|null $email
      * @throws AssertionFailedException
      */
-    public function __construct(string $email)
+    public function __construct(?string $email)
     {
-        Assertion::email($email);
         $this->email = $email;
+        if (!empty($email)) {
+            Assertion::email($email);
+        }
     }
 
     public function __toString(): string

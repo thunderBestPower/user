@@ -3,6 +3,8 @@
 namespace Esc\User\Entity;
 
 use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -52,13 +54,13 @@ class User implements UserInterface, EscUser
     private $roles;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      * @ORM\Column(name="updated", type="datetime", nullable=true)
      */
     private $updated;
@@ -70,7 +72,7 @@ class User implements UserInterface, EscUser
     private $active = true;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"userAll", "user"})
      */
     private $email;
@@ -194,29 +196,29 @@ class User implements UserInterface, EscUser
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getCreated(): \DateTime
+    public function getCreated(): DateTime
     {
         return $this->created;
     }
 
     /**
-     * @return \DateTime|null
+     * @return DateTime|null
      */
-    public function getUpdated(): ?\DateTime
+    public function getUpdated(): ?DateTime
     {
         return $this->updated;
     }
 
-    public function setCreated(\DateTimeInterface $created): self
+    public function setCreated(DateTimeInterface $created): self
     {
         $this->created = $created;
 
         return $this;
     }
 
-    public function setUpdated(?\DateTimeInterface $updated): self
+    public function setUpdated(?DateTimeInterface $updated): self
     {
         $this->updated = $updated;
 
@@ -240,7 +242,7 @@ class User implements UserInterface, EscUser
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
