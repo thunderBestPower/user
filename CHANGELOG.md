@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/escsrl/user/compare/v4.3.0...v5.0.0) (2021-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove required email
+
+### Features
+
+* remove required email ([e2601aa](https://github.com/escsrl/user/commit/e2601aaa0e871a19880cbe8ee5b0bf404558e74d))
+
 ## [4.3.0](https://github.com/escsrl/user/compare/v4.2.3...v4.3.0) (2021-03-01)
 
 
