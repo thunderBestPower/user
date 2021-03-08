@@ -22,7 +22,10 @@ class Email
         }
     }
 
-    public function __toString(): string
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string
     {
         return $this->email;
     }

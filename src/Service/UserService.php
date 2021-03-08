@@ -30,11 +30,14 @@ class UserService implements EscUserService
      * @param AttributeBag $data
      * @throws AssertionFailedException
      */
-    public function createUser($data): void
+    public function createUser(AttributeBag $data): void
     {
+
+        $email = new Email($data->get('email'));
+
         $this->user->setUsername(new Username($data->get('username')));
         $this->user->setPlainPassword(new ComparePasswords($data->get('password', ''), $data->get('confirmPassword', '')));
-        $this->user->setEmail(new Email($data->get('email')));
+        $this->user->setEmail($email->getEmail());
         $this->user->setActive((bool)$data->get('active', false));
         $roles = new Roles($data->get('roles'));
         $this->user->setRoles($roles->get());
@@ -48,7 +51,7 @@ class UserService implements EscUserService
      * @param AttributeBag $data
      * @throws AssertionFailedException
      */
-    public function updateUser(int $id, $data): void
+    public function updateUser(int $id, AttributeBag $data): void
     {
         $user = $this->userRepository->getOneById($id);
 
@@ -57,7 +60,8 @@ class UserService implements EscUserService
         }
 
         if ($data->has('email')) {
-            $user->setEmail(new Email($data->get('email')));
+            $email = new Email($data->get('email'));
+            $user->setEmail($email->getEmail());
         }
 
         if ($data->has('active')) {
