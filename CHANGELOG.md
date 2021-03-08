@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/escsrl/user/compare/v5.0.0...v5.0.1) (2021-03-08)
+
+
+### Bug Fixes
+
+* Assertion Email ([b62f51d](https://github.com/escsrl/user/commit/b62f51d4ef43c68bf423732e7444833afae9666e))
+
 ## [5.0.0](https://github.com/escsrl/user/compare/v4.3.0...v5.0.0) (2021-03-06)
 
 
