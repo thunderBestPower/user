@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.2](https://github.com/thunderBestPower/user/compare/v6.0.1...v6.0.2) (2022-03-11)
+
+
+### Features
+
+* align version ([28a33a6](https://github.com/thunderBestPower/user/commit/28a33a6f305c20ba9775806fba6705f159a0e52d))
+
 ### [6.0.1](https://github.com/thunderBestPower/user/compare/v6.0.0...v6.0.1) (2022-03-11)
 
 
