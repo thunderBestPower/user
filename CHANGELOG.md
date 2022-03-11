@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.3](https://github.com/thunderBestPower/user/compare/v6.0.2...v6.0.3) (2022-03-11)
+
+
+### Features
+
+* align version composer.json ([287d3e2](https://github.com/thunderBestPower/user/commit/287d3e21d5922a3fa4238030729afb39b574c812))
+
 ### [6.0.2](https://github.com/thunderBestPower/user/compare/v6.0.1...v6.0.2) (2022-03-11)
 
 
