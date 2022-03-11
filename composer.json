@@ -1,7 +1,7 @@
 {
-    "name": "escsrl/user",
+    "name": "bluewebmv/user",
     "type": "library",
-    "description": "Symfony base user configuration",
+    "dBlueWebription": "Symfony base user configuration",
     "keywords": [
         "user",
         "symfony",
@@ -10,34 +10,29 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Alessandro Bellanda",
-            "email": "a.bellanda@gmail.com"
-        },
-        {
             "name": "Mattia Vitali",
-            "email": "mattia.vitali@blue-web.it"
+            "email": "vitali.mattia@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Esc\\User\\": "src/",
-            "Test\\Esc\\User\\": "tests/"
+            "BlueWeb\\User\\": "src/"
         }
     },
     "require": {
-        "php": "^7.3",
+        "php": "^8.0",
         "ext-json": "*",
         "ext-intl": "*",
         "beberlei/assert": "^3.2",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
-        "escsrl/repository": "^1.1",
-        "escsrl/requestparams": "^3.0",
-        "escsrl/result": "^1.0",
+        "bluewebmv/repository": "^2.0",
+        "bluewebmv/requestparams": "^4.0",
+        "bluewebmv/result": "^2.0",
         "nesbot/carbon": "^2.27",
         "phpspec/prophecy": "^1.10",
-        "sensio/framework-extra-bundle": "^5.5",
-        "symfony/security-bundle": "^5.1",
+        "sensio/framework-extra-bundle": "^6.0",
+        "symfony/security-bundle": "^6.0",
         "symfony/serializer-pack": "^1.0"
     },
     "require-dev": {
@@ -47,5 +42,5 @@
     "config": {
         "sort-packages": true
     },
-    "version": "5.0.1"
+    "version": "6.0.0"
 }

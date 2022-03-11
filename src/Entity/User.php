@@ -1,6 +1,6 @@
 <?php
 
-namespace Esc\User\Entity;
+namespace BlueWeb\User\Entity;
 
 use Carbon\Carbon;
 use DateTime;
@@ -14,10 +14,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Entity
  * @ORM\Table(name="app_user")
  * @ORM\HasLifecycleCallbacks
- * @ORM\Entity(repositoryClass="Esc\User\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="BlueWeb\User\Repository\UserRepository")
  * @UniqueEntity("username")
  */
-class User implements UserInterface, EscUser
+class User implements UserInterface, BlueWebUser
 {
     /**
      * @var int

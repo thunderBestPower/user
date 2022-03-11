@@ -1,10 +1,10 @@
 <?php
 
-namespace Esc\User\Service;
+namespace BlueWeb\User\Service;
 
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 
-interface EscUserService
+interface BlueWebUserService
 {
     /**
      * @param AttributeBag $data

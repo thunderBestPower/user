@@ -1,8 +1,8 @@
 <?php
 
-namespace Esc\User\Entity;
+namespace BlueWeb\User\Entity;
 
-interface EscUser
+interface BlueWebUser
 {
     /**
      * @return mixed

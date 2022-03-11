@@ -1,23 +1,23 @@
 <?php
 
-namespace Esc\User\Service;
+namespace BlueWeb\User\Service;
 
 use Assert\AssertionFailedException;
 use Doctrine\ORM\EntityManagerInterface;
-use Esc\User\Entity\ValueObjects\ChangePasswords;
-use Esc\User\Entity\ValueObjects\ComparePasswords;
-use Esc\User\Entity\ValueObjects\Email;
-use Esc\User\Entity\ValueObjects\Username;
-use Esc\User\Entity\User;
-use Esc\User\Entity\ValueObjects\Roles;
-use Esc\User\Repository\UserRepository;
+use BlueWeb\User\Entity\ValueObjects\ChangePasswords;
+use BlueWeb\User\Entity\ValueObjects\ComparePasswords;
+use BlueWeb\User\Entity\ValueObjects\Email;
+use BlueWeb\User\Entity\ValueObjects\Username;
+use BlueWeb\User\Entity\User;
+use BlueWeb\User\Entity\ValueObjects\Roles;
+use BlueWeb\User\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 
-class UserService implements EscUserService
+class UserService implements BlueWebUserService
 {
-    private $entityManager;
-    private $userRepository;
-    private $user;
+    private EntityManagerInterface $entityManager;
+    private UserRepository$userRepository;
+    private User $user;
 
     public function __construct(EntityManagerInterface $manager, UserRepository $userRepository, User $user)
     {

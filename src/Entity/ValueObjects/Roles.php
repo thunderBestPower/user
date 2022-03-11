@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Esc\User\Entity\ValueObjects;
+namespace BlueWeb\User\Entity\ValueObjects;
 
 
 use Assert\Assertion;

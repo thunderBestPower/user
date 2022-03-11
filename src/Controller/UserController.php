@@ -1,11 +1,11 @@
 <?php
 
-namespace Esc\User\Controller;
+namespace BlueWeb\User\Controller;
 
-use Esc\User\Repository\EscUserRepository;
-use Esc\User\Service\EscUserService;
-use Esc\RequestParams;
-use Esc\Result;
+use BlueWeb\User\Repository\BlueWebUserRepository;
+use BlueWeb\User\Service\BlueWebUserService;
+use BlueWeb\RequestParams;
+use BlueWeb\Result;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,10 +22,10 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  */
 final class UserController extends AbstractController
 {
-    private $userRepository;
-    private $userService;
+    private BlueWebUserRepository $userRepository;
+    private BlueWebUserService $userService;
 
-    public function __construct(EscUserRepository $userRepository, EscUserService $userService)
+    public function __construct(BlueWebUserRepository $userRepository, BlueWebUserService $userService)
     {
         $this->userRepository = $userRepository;
         $this->userService = $userService;

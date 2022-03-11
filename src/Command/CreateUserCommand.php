@@ -1,9 +1,9 @@
 <?php
 
-namespace Esc\User\Command;
+namespace BlueWeb\User\Command;
 
 use Assert\AssertionFailedException;
-use Esc\User\Service\UserService;
+use BlueWeb\User\Service\UserService;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

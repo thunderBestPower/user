@@ -1,10 +1,10 @@
 <?php
 
-namespace Esc\User\Repository;
+namespace BlueWeb\User\Repository;
 
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 
-interface EscUserRepository
+interface BlueWebUserRepository
 {
     /**
      * @param AttributeBag $parameters
