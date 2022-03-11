@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/thunderBestPower/user/compare/v6.0.0...v6.0.1) (2022-03-11)
+
+
+### Features
+
+* change namespace and upgrade to php 8.0 ([3a561fe](https://github.com/thunderBestPower/user/commit/3a561fe69a1de40f9eb333b6bc43dcd6c3505d07))
+
 ## [6.0.0](https://github.com/thunderBestPower/user/compare/v5.0.1...v6.0.0) (2022-03-11)
 
 ### [5.0.1](https://github.com/BlueWebsrl/user/compare/v5.0.0...v5.0.1) (2021-03-08)
